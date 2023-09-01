@@ -17,8 +17,16 @@ const Home = () => {
     const [connected, setConnected] = useState(false);
     const [lendingPositions, setLendingPositions] = useState([]); // Store lending positions
 
-    // Your contract address for LendingPlatform
+    // Your contract address for Platform ***************************************************************************************
     const contractAddress = '0xd5F6A33DB1247Ea83f3a108d7d14d78dDc309D43';
+    // when connected to metamask extension , a contract address will be there 0xd...456  , copy it and replace it here to handle error 
+    //*****************************************************************************************************************************8 */
+
+
+
+
+
+
 
     const connectWalletHandler = () => {
         if (window.ethereum && window.ethereum.isMetaMask) {
@@ -34,7 +42,8 @@ const Home = () => {
 
                 })
                 .catch((error) => {
-                    setErrorMessage(error.message);
+                    // setErrorMessage("possible reason -> please rematch contract address with add given in meta mask")
+                    setErrorMessage("please rematch contract address in Home.js with addr given in metamask "+ error.message);
                 });
         } else {
             console.log('Need to install MetaMask');
@@ -76,26 +85,44 @@ const Home = () => {
     };
 
     const lend = async (amount) => {
-        try {
-            const valueInEther = ethers.utils.parseEther(amount.toString());
-            const tx = await contract.lend({
-                value: valueInEther,
-            });
-            await tx.wait(); // Wait for the transaction to be mined
-            fetchLendingPositions();
-        } catch (error) {
-            setErrorMessage(error.message);
+        if( connected ){
+
+            try {
+                const valueInEther = ethers.utils.parseEther(amount.toString());
+                const tx = await contract.lend({
+                    value: valueInEther,
+                });
+                await tx.wait(); // Wait for the transaction to be mined
+               
+                fetchLendingPositions();
+            } catch (error) {
+                alert(error.message);
+                setErrorMessage(error.message);
+            }
+
         }
+        else{
+            setErrorMessage("Please Connect Wallet First To Lend");
+        }
+        
     };
 
     const borrow = async (amount) => {
-        try {
-            const tx = await contract.borrow(amount);
-            await tx.wait(); // Wait for the transaction to be mined
-            fetchLendingPositions();
-        } catch (error) {
-            setErrorMessage(error.message);
+        if( connected ){
+            try {
+                const tx = await contract.borrow(amount);
+                await tx.wait(); // Wait for the transaction to be mined
+                alert("Transaction initiated please check Metamask popup");
+                fetchLendingPositions();
+            } catch (error) {
+                alert(error.message);
+                setErrorMessage(error.message);
+            }
         }
+        else{
+            setErrorMessage("Please Connect Wallet First To Borrow");
+        }
+       
     };
 
     const fetchLendingPositions = async () => {
@@ -117,52 +144,38 @@ const Home = () => {
 
            
 
-		<div className="container">
-            <h4 className="title">DEFI Borrowing Lending App</h4>
-            <button className="button" onClick={connectWalletHandler}>
-                {connButtonText}
-            </button>
-            <div>
-                <h3>Address: {defaultAccount}</h3>
-            </div>
-
-
-			  {/* <form onSubmit={setHandler}>
-                <input id="setText" type="text" className="input" />
-                <button type="submit" className="submit-button">Update Contract</button>
-            </form> */}
-
-            
-
-			<div>
-                {!connected ? (
-                    <h4 className="error">Please connect</h4>
-                ) : (
-                    <>
-
-					  <BorrowForm borrow={borrow} />
+        <div className="container">
+        <header className="navbar">
+          <h1 className="title">DEFI Borrowing Lending App</h1>
+          <button className="button" onClick={connectWalletHandler}>
+            {connButtonText}
+          </button>
+        </header>
+  
+        <div className="content">
+          <div className="left-content">
+            <BorrowForm borrow={borrow} />
+          </div>
+  
+          <div className="right-content">
             <LendForm lend={lend} />
             <LendingPositions positions={lendingPositions} />
-            
-                        <h4 className="success">Connected</h4>
-                        </>
-                )}
-            </div>
-
-                <div>
-                <button onClick={getCurrentVal} className="button">Get Current Contract Value</button>
-            </div>
-            <div className="title">
-                {currentContractVal}
-            </div>
-            <div className="error">
-                {errorMessage}
-            </div>
-
-
-
-          
+          </div>
         </div>
+  
+        <div className="footer">
+          <div className="address">
+            <h4>Address: {defaultAccount}</h4>
+          </div>
+          <div className="contract-value">
+            <button onClick={getCurrentVal} className="button">
+              Get Current Contract Value
+            </button>
+            <div className="title">{currentContractVal}</div>
+          </div>
+          <div className="error">{errorMessage ? errorMessage.slice(0, 75) : ''}</div>
+        </div>
+      </div>
 
 
     );

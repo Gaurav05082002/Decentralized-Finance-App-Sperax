@@ -79,16 +79,16 @@ To run this application, you'll need:
 
 **Solution:** To resolve this error, follow these steps:
 
-1. **Check Address in SimpleStorage.js:**
-   - Open the `SimpleStorage.js` file in your project code (usually found where you pasted the Ethereum address).
+1. **Check Address in Home.js:**
+   - Open the `Home.js` file in your project code (usually found where you pasted the Ethereum address).
    - Go to the line number mentioned in the error message (e.g., line 21).
 
 2. **Verify Address:**
-   - Verify that the Ethereum address in your `SimpleStorage.js` file is correct and matches the address in your MetaMask extension.
+   - Verify that the Ethereum address in your `Home.js` file is correct and matches the address in your MetaMask extension.
    - Ensure there are no extra spaces or characters.
 
 3. **Update the Address:**
-   - If you find any discrepancies or errors, correct them in the `SimpleStorage.js` file.
+   - If you find any discrepancies or errors, correct them in the `Home.js` file.
    - Save the file after making changes.
 
 4. **Recheck:**

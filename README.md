@@ -94,6 +94,8 @@ To run this application, you'll need:
 4. **Recheck:**
    - Close and reopen your application.
    - Ensure that the address update is successfully reflected in the application.
+demo > ![connection demo](https://github.com/Gaurav05082002/Decentralized-Finance-App-Sperax/assets/80939403/6dd38332-a697-42e7-8dec-8a05f8fdaede)
+
 
 By following these steps, you should be able to resolve the "Invalid Address" error. If the issue persists, double-check the address and ensure it is accurate.
 

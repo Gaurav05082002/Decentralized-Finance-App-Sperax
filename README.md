@@ -9,6 +9,9 @@ This DeFi (Decentralized Finance) lending application allows users to borrow and
 - **Configuring Your Metamask Account**:
   - Copy your Metamask account address (e.g., 0xd5..D43).
   - Paste the account address into the `Home.js` file in the code. This step establishes a connection between your Metamask account and our React app, allowing you to control transactions from our app.
+      ```shell
+       // Your contract address for Platform is to be replaced here (Line 21 in Home.js)
+       const contractAddress = '0xd5F6A33DB1247Ea83f3a108d7d14d78dD309D43';
 
 - **Connecting Your Wallet**:
   - Once the Metamask address is updated in the `Home.js` file, click on the "Connect Wallet" button. This action will connect your wallet to the application, and you'll see options to borrow and lend.
@@ -94,6 +97,8 @@ To run this application, you'll need:
 4. **Recheck:**
    - Close and reopen your application.
    - Ensure that the address update is successfully reflected in the application.
+demo > ![connection demo](https://github.com/Gaurav05082002/Decentralized-Finance-App-Sperax/assets/80939403/6dd38332-a697-42e7-8dec-8a05f8fdaede)
+
 
 By following these steps, you should be able to resolve the "Invalid Address" error. If the issue persists, double-check the address and ensure it is accurate.
 

@@ -10,7 +10,7 @@ This DeFi (Decentralized Finance) lending application allows users to borrow and
   - Copy your Metamask account address (e.g., 0xd5..D43).
   - Paste the account address into the `Home.js` file in the code. This step establishes a connection between your Metamask account and our React app, allowing you to control transactions from our app.
       ```shell
-       // Your contract address for Platform is to be replaced here (Line 21)
+       // Your contract address for Platform is to be replaced here (Line 21 in Home.js)
        const contractAddress = '0xd5F6A33DB1247Ea83f3a108d7d14d78dD309D43';
 
 - **Connecting Your Wallet**:

@@ -1,4 +1,4 @@
-/* App.css */
+
 
 .container {
     font-family: Arial, sans-serif;
@@ -51,14 +51,14 @@
 }
 
 
-/* Home.css */
+
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    /* z-index: 100; */
+ 
   }
   
   .container {
@@ -134,7 +134,7 @@ body {
   .error {
     flex: 1;
     margin-top: 10px;
-    font-size: 16px; /* Adjust the font size for smaller screens */
+    font-size: 16px;
   }
   
   .contract-value {
@@ -146,12 +146,12 @@ body {
   .success {
     color: #008000;
     margin-top: 10px;
-    font-size: 16px; /* Adjust the font size for smaller screens */
+    font-size: 16px;
   }
   
   .error {
     color: #ff0000;
     margin-top: 10px;
-    font-size: 16px; /* Adjust the font size for smaller screens */
+    font-size: 16px;
   }
   

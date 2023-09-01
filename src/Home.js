@@ -4,7 +4,7 @@ import BorrowForm from './components/BorrowForm';
 import LendingPositions from './components/LendingPositions';
 import './Home.css';
 import { ethers } from 'ethers';
-import LendingPlatform_abi from './contracts/LendingPlatform_sol_LendingPlatform.abi.json'; // Import the ABI for your LendingPlatform contract
+import LendingPlatform_abi from './contracts/LendingPlatform_sol_LendingPlatform.abi.json';
 
 const Home = () => {
     const [errorMessage, setErrorMessage] = useState(null);
@@ -15,7 +15,7 @@ const Home = () => {
     const [signer, setSigner] = useState(null);
     const [contract, setContract] = useState(null);
     const [connected, setConnected] = useState(false);
-    const [lendingPositions, setLendingPositions] = useState([]); // Store lending positions
+    const [lendingPositions, setLendingPositions] = useState([]);
 
     // Your contract address for Platform ***************************************************************************************
     const contractAddress = '0xd5F6A33DB1247Ea83f3a108d7d14d78dDc309D43';
@@ -37,7 +37,7 @@ const Home = () => {
                     setConnButtonText('Wallet Connected');
                     setConnected(true);
  
-					// Initialize contract and provider after connecting
+					
                     updateEthers();
 
                 })

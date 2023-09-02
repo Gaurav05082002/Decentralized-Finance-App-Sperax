@@ -108,7 +108,9 @@ const Home = () => {
     };
 
     const borrow = async (amount) => {
-        if( connected ){
+         if( connected ){
+            alert("Transaction initiated , click ok and wait for Metamask popup");
+       
             try {
                 const tx = await contract.borrow(amount);
                 await tx.wait(); // Wait for the transaction to be mined

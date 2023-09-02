@@ -84,6 +84,13 @@ body {
 .App.active .launch-button {
   display: none;
 }
+.instructiondiv {
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: azure;
+  border: solid 2px white;
+  
+}
 
 
 @keyframes App-logo-spin {

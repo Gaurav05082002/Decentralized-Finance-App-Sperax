@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract LendingPlatform {
+    using SafeMath for uint256;
+
     address public owner;
     uint256 public interestRate; // Static interest rate for all loans
     uint256 public collateralRatio; // The ratio of collateral required for borrowing
